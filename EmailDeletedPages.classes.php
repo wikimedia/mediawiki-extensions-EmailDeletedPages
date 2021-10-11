@@ -48,7 +48,7 @@ class EmailDeletedPages {
                 // If the most recent revision is unavailable to this user, fall back to the most
                 // recent revision by this user
                 if ( !$content ) {
-                        $dbr = wfGetDB( DB_SLAVE );
+                        $dbr = wfGetDB( DB_REPLICA );
                         $res = $dbr->selectRow( 'revision', 'rev_id', array (
                                         'rev_user' => $creator->getId(),
                                         'rev_page' => $article->getId()
